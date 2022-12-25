@@ -8,7 +8,8 @@ class MainPage extends Base {
     cookiePopUp: () => cy.get('.jRrWoh'),
     emailInput: () => cy.get('.eZNiRr'),
     tryToFreeButton: () => cy.get('.leuQWr .eKznVb'),
-
+    replicantStoryTitle: () => cy.get('.bBhpnW > :nth-child(3) > div'),
+    replicantStoryLink: () => cy.get('.bBhpnW > :nth-child(3) > a'),
 
 
     // tollFreeInput: () => cy.get('#toll-free-numbers'),
@@ -44,38 +45,12 @@ class MainPage extends Base {
     this.clickElement(this.elements.tryToFreeButton());
   }
 
-
-
-  scrollToSwitchFormTitle() {
-    this.scrollElement(this.elements.switchFormTitle());
+  clickReplicantStoryLink() {
+    this.clickElement(this.elements.replicantStoryLink());
   }
 
-  clickTillFreeInput() {
-    this.elements.tollFreeInput().click();
-    this.elements.programmableVoiceInput().click();
-    this.scrollElement(this.elements.compareCostsColumnTitle());
-  }
 
-  clickExploreButton() {
-    this.clickElement(this.elements.exploreButton());
-    cy.url().should('include', '/products');
-  }
-
-  clickSignUpButton() {
-    this.clickElement(this.elements.signUpButton());
-    cy.url().should('include', '/sign-up');
-  }
-
-  clickLoginButton() {
-    this.clickElement(this.elements.loginButton());
-    cy.url().should('include', '/login');
-  }
-
-  clickTalkExpertButton() {
-    this.clickElement(this.elements.talkExpertButton());
-  }
 
 }
 
-// module.exports = new MainPage();
 export const mainPage = new MainPage();

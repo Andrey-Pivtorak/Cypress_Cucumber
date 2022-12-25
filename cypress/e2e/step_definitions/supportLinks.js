@@ -43,7 +43,7 @@ When('Click the LinkedIn icon link', () => {
   supportPage.clickLinkedinFooterLink();
 })
 Then('The Telnyx LinkedIn page is opened', () => {
-  cy.visit('https://www.linkedin.com/authwall?trk=bf&trkInfo=AQE-rJ4Vrvsb5AAAAYVGngQY_-TVEHX5XGOHmM5ftB9XdYvDJPsGCHv3hsn3ek_WBqleFS1K1MTEcQEdo92DlrZs-x7idSnUTrzXVPtRZZR4292-BkMLbTw5Pju2RvNxU9PnXCU=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F3349412%2F', {
+  cy.visit(`${supportPage.facebookUrl}`, {
     onBeforeLoad(win) {
       cy.stub(win, 'open')
     }

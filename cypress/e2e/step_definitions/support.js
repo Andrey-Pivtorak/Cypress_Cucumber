@@ -1,9 +1,9 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { supportPage } from "@pages/support.page";
 
-Given('Visit the website support.telnyx.com\\/en', () => {
-  supportPage.openPage();
-});
+Given('Visit the website support.telnyx.com', () => {
+    supportPage.openPage();
+  });
 
 When('Click the Getting Started section', () => {
   supportPage.clickGettingStartedSection();

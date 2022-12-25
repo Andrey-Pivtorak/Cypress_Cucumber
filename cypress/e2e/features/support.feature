@@ -1,7 +1,7 @@
 Feature: Support centre sections
 
   Background:
-    Given Visit the website support.telnyx.com/en
+    Given Visit the website support.telnyx.com
 
   Scenario: Check "Getting Started" section for clicability and displaying
     When Click the Getting Started section

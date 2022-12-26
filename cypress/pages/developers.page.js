@@ -2,7 +2,7 @@ import Base from "./base";
 
 class DevelopersPage extends Base {
 
-  baseUrl = 'https://developers.telnyx.com/docs/v2';
+  baseUrl = 'https://developers.telnyx.com';
 
   elements = {
     api1Button: () => cy.get('.fsStYO .hYETLD > :first-child'),
@@ -11,7 +11,16 @@ class DevelopersPage extends Base {
     api2Title: () => cy.get('#telnyx-api-v2-documentation'),
     messagingButton: () => cy.get('.fsayUj > :nth-child(1)'),
     sipTrunkingButton: () => cy.get('.fsayUj > :nth-child(4)'),
-
+    searchBar: () => cy.xpath('//div[@id="docs-desktop-sidebar"]//input'),
+    searchResponseLink: () => cy.xpath('//a[contains(@href,"javascript-quickstart")]'),
+    tryNowSectionTitle: () => cy.get('.bsfvBg'),
+    tryNowSectionTabList: () => cy.get('.bTQRcM'),
+    tryNowSearchNumberTab: () => cy.get('.eGZJmB > :nth-child(2)'),
+    tryNowSearchNumberContent: () => cy.get('[id="tabpanel-Search Number"] code'),
+    tryNowOrderNumberTab: () => cy.get('.eGZJmB > :nth-child(3)'),
+    tryNowOrderNumberContent: () => cy.get('[id="tabpanel-Order Number"] code'),
+    tryNowSendMessageTab: () => cy.get('.eGZJmB > :nth-child(4)'),
+    tryNowSendMessageContent: () => cy.get('[id="tabpanel-Send Message"] code'),
   }
 
   openDevelopersPage() {
@@ -33,6 +42,34 @@ class DevelopersPage extends Base {
 
   clickSipTrunkingButton() {
     this.clickElement(this.elements.sipTrunkingButton());
+  }
+
+  clickSearchBar() {
+    this.clickElement(this.elements.searchBar());
+  }
+
+  enterSearchRequest() {
+    this.enterInput(this.elements.searchBar(), 'JavaScript')
+  }
+
+  clickSearchResponseLink() {
+    this.elements.searchResponseLink().click();
+  }
+
+  scrollTryNowSectionTitle() {
+    this.scrollElement(this.elements.tryNowSectionTitle());
+  }
+
+  clickTryNowSearchNumberTab() {
+    this.clickElement(this.elements.tryNowSearchNumberTab());
+  }
+
+  clickTryNowOrderNumberTab() {
+    this.clickElement(this.elements.tryNowOrderNumberTab());
+  }
+
+  clickTryNowSendMessageTab() {
+    this.clickElement(this.elements.tryNowSendMessageTab());
   }
 
 }

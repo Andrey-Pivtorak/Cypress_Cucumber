@@ -1,34 +1,34 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { developersPage } from "@pages/developers.page";
 
-Given('', () => {
+Given('Go developers.telnyx.com', () => {
   developersPage.openDevelopersPage();
 });
 
-When('', () => {
-
+When('Click the Account link', () => {
+  developersPage.clickAccountLink();
 });
-Then('', () => {
-
+Then('The Account page is opened', () => {
+  cy.url().should('include', '/account');
 });
 
-// When('', () => {
+When('Click the Porting link', () => {
+  developersPage.clickPortingLink();
+});
+Then('The Porting page is opened', () => {
+  cy.url().should('include', '/porting');
+});
 
-// });
-// Then('', () => {
+When('Click the WebRTC link', () => {
+  developersPage.clickWebrtcLink();
+});
+Then('The WebRTC page is opened', () => {
+  cy.url().should('include', '/webrtc');
+});
 
-// });
-
-// When('', () => {
-
-// });
-// Then('', () => {
-
-// });
-
-// When('', () => {
-
-// });
-// Then('', () => {
-
-// });
+When('Click the Debugging link', () => {
+  developersPage.clickDebuggingLink();
+});
+Then('The Debugging page is opened', () => {
+  cy.url().should('include', '/debugging');
+});

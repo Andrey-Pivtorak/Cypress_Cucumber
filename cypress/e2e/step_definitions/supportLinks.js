@@ -12,7 +12,7 @@ When('Click the telnyx.com link', () => {
 Then('The telnyx.com page is opened', () => {
   cy.visit('https://telnyx.com/', {
     onBeforeLoad(win) {
-      cy.stub(win, 'close')
+      cy.stub(win, 'open')
     }
   });
 })

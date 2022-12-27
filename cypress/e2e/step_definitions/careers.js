@@ -55,24 +55,40 @@ When('Enter Yes in the visa sponsorship field', () => {
   careersPage.enterVisaSelect();
 });
 Then('Yes is entered in the visa sponsorship field', () => {
-  cy.get('#select2-chosen-1').should('be.visible');
+  cy.get('#select2-chosen-1').should('have.text', 'Yes');
 });
-// When('', () => {
 
-// });
-// Then('', () => {
+When('Enter two thousand dollars in the salary field', () => {
+  careersPage.enterSalary();
+});
+Then('two thousand dollars is entered in the salary field', () => {
+  careersPage.elements.salaryInput().should('have.value', 'two thousand dollars');
+});
 
-// });
-// When('', () => {
+When('Enter No in the countries field', () => {
+  careersPage.enterSponsorSelect();
+});
+Then('No is entered in the countries field', () => {
+  cy.get('#select2-chosen-2').should('have.text', 'No');
+});
 
-// });
-// Then('', () => {
+When('Enter Male in the Gender field', () => {
+  careersPage.enterGenderInput();
+});
+Then('Male is entered in the Gender field', () => {
+  cy.get('#select2-chosen-3').should('have.text', 'Male');
+});
 
-// });
+When('Scroll to the Submit Application button', () => {
+  careersPage.scrollToSubmitButton();
+});
+Then('The Submit Application button is displayed', () => {
+  careersPage.elements.submitButton().should('be.visible');
+});
 
-// When('', () => {
-
-// });
-// Then('', () => {
-
-// });
+When('Click the  Submit Application button', () => {
+  careersPage.clickSubmitButton();
+});
+Then('The Thank you for applying message is displayed', () => {
+  cy.get('#application_confirmation h1').should('be.visible');
+});

@@ -15,16 +15,17 @@ class CareersPage extends Base {
     emailInput: () => cy.get('#email'),
 
     visaSelect: () => cy.get('#s2id_job_application_answers_attributes_2_boolean_value'),
-    
+    salaryInput: () => cy.get('#job_application_answers_attributes_3_text_value'),
+    citizenSelect: () => cy.get('#s2id_job_application_answers_attributes_4_boolean_value'),
+    genderInput: () => cy.get('#s2id_job_application_gender'),
+    submitButton: () => cy.get('#submit_app')
   }
 
   inputValues = {
-    firstName: 'ivan',
+    firstName: 'Ivan',
     lastName: 'Fedorov',
     email: 'testerlqcompany@gmail.com',
-
-
-
+    salary: 'two thousand dollars'
   }
 
   openCareersPage() {
@@ -62,9 +63,27 @@ class CareersPage extends Base {
     cy.get('#select2List0 > :nth-child(2)').click();
   }
 
+  enterSalary() {
+    this.enterInput(this.elements.salaryInput(), this.inputValues.salary);
+  }
 
+  enterSponsorSelect() {
+    this.clickElement(this.elements.citizenSelect());
+    cy.get('#select2List1 > :nth-child(3)').click();
+  }
 
+  enterGenderInput() {
+    this.clickElement(this.elements.genderInput());
+    cy.get('#select2List2 > :nth-child(2)').click();
+  }
 
+  scrollToSubmitButton() {
+    this.scrollElement(this.elements.submitButton());
+  }
+
+  clickSubmitButton() {
+    this.clickElement(this.elements.submitButton());
+  }
 
 }
 

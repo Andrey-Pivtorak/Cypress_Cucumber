@@ -23,17 +23,17 @@ Feature: Careers opportunities
     When Enter Yes in the visa sponsorship field
     Then Yes is entered in the visa sponsorship field
 
-    # When
-    # Then
+    When Enter two thousand dollars in the salary field
+    Then two thousand dollars is entered in the salary field
 
-    # When
-    # Then
+    When Enter No in the countries field
+    Then No is entered in the countries field
 
-    # When
-    # Then
+    When Enter Male in the Gender field
+    Then Male is entered in the Gender field
 
-    # When
-    # Then
+    When Scroll to the Submit Application button
+    Then The Submit Application button is displayed
 
-    # When
-    # Then
+    When Click the  Submit Application button
+    Then The Thank you for applying message is displayed

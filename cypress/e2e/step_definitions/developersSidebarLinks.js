@@ -3,6 +3,7 @@ import { developersPage } from "@pages/developers.page";
 
 Given('Go developers.telnyx.com', () => {
   developersPage.openDevelopersPage();
+  cy.wait(2000);
 });
 
 When('Click the Account link', () => {

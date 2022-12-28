@@ -28,13 +28,13 @@ Then('The Talk to an expert page is opened', () => {
   });
 })
 
-When('Click the FaceBook icon link', () => {
-  supportPage.clickFacebookFooterLink();
-})
-Then('The Telnyx FaceBook page is opened', () => {
-  cy.visit('https://www.facebook.com/Telnyx/', {
-    onBeforeLoad(win) {
-      cy.stub(win, 'open')
-    }
-  });
-})
+// When('Click the FaceBook icon link', () => {
+//   supportPage.clickFacebookFooterLink();
+// })
+// Then('The Telnyx FaceBook page is opened', () => {
+//   cy.visit('https://www.facebook.com/Telnyx/', {
+//     onBeforeLoad(win) {
+//       cy.stub(win, 'open')
+//     }
+//   });
+// })

@@ -5,13 +5,13 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
-      - name: Install xpath
-        uses: actions/checkout@v2
-        with:
-          command: npm i cypress-xpath
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install xpath
+        uses: actions/checkout@v2
+        with:
+          command: npm install cypress-xpath
       - name: Cypress run
         uses: cypress-io/github-action@v4.2.0
         with:

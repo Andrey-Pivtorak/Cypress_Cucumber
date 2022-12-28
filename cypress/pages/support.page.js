@@ -12,7 +12,6 @@ class SupportPage extends Base {
     telnyxFooterLink: () => cy.get('.footer__links__custom > :nth-child(1)'),
     supportFooterLink: () => cy.get('.footer__links__custom > :nth-child(4) a'),
     facebookFooterLink: () => cy.get('[data-footer-link-type="facebook"]'),
-    linkedinFooterLink: () => cy.get('[data-footer-link-type="linkedin"]'),
     footer: () => cy.get('.footer')
   }
 
@@ -49,10 +48,6 @@ class SupportPage extends Base {
 
   clickFacebookFooterLink() {
     this.clickElement(this.elements.facebookFooterLink());
-  }
-
-  clickLinkedinFooterLink() {
-    this.clickElement(this.elements.linkedinFooterLink());
   }
 
 }

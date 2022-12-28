@@ -6,7 +6,7 @@ class PricingPage extends Base {
   baseUrl = 'https://telnyx.com/twilio-pricing-calculator';
 
   elements = {
-    whichProductsTitle: () => cy.get('.cTxamq'),
+    whichProductsTitle: () => cy.get('header.fbrtSd'),
     voiceApiButton: () => cy.get('.fkuRxe > :nth-child(3)'),
     continueButton: () => cy.get('button.cSsJix'),
     localNumbersInput: () => cy.get('#local-numbers'),

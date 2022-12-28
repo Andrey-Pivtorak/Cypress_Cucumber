@@ -14,7 +14,3 @@ Feature: Support centre links
   Scenario: Check the clickability of "facebook" footer link
     When Click the FaceBook icon link
     Then The Telnyx FaceBook page is opened
-
-  Scenario: Check the clickability of "linkedIn" footer link
-    When Click the LinkedIn icon link
-    Then The Telnyx LinkedIn page is opened

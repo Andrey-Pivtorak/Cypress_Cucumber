@@ -38,14 +38,3 @@ Then('The Telnyx FaceBook page is opened', () => {
     }
   });
 })
-
-When('Click the LinkedIn icon link', () => {
-  supportPage.clickLinkedinFooterLink();
-})
-Then('The Telnyx LinkedIn page is opened', () => {
-  cy.visit(`${supportPage.facebookUrl}`, {
-    onBeforeLoad(win) {
-      cy.stub(win, 'open')
-    }
-  });
-})

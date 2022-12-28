@@ -8,7 +8,8 @@ class DevelopersPage extends Base {
   elements = {
     api1Button: () => cy.get('.fsStYO .hYETLD > :first-child'),
     api2Button: () => cy.get('.fsStYO .hYETLD > :last-child'),
-    api1Title: () => cy.get('#telnyx-api-v1-documentation'),
+    // api1Title: () => cy.get('#telnyx-api-v1-documentation'),
+    api1Title: () => cy.get('.kqOdep h1'),
     api2Title: () => cy.get('#telnyx-api-v2-documentation'),
     messagingButton: () => cy.get('.fsayUj > :nth-child(1)'),
     sipTrunkingButton: () => cy.get('.fsayUj > :nth-child(4)'),

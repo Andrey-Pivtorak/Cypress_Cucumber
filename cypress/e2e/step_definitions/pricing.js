@@ -26,7 +26,7 @@ Then('How many phone numbers… section is displayed', () => {
   cy.get('.cTxamq').should('contain', 'How many phone numbers do you use?');
 });
 
-When('Click + to add local numbers', () => {
+When('Click plus button to add local numbers', () => {
   pricingPage.clickAddLocalNumbersButton();
 });
 Then('110 is entered in the Local Numbers field', () => {
@@ -47,9 +47,9 @@ Then('Adjust your usage… section is displayed', () => {
   cy.get('.cTxamq').should('contain', 'Adjust your usage to calculate savings');
 });
 
-When('Click the + button in the Receive inbound field', () => {
+When('Click plus button in the Receive inbound field', () => {
   pricingPage.clickAddInboundButton();
 });
-Then('$4,957... is displayed below the Your saving title', () => {
+Then('4,957 is displayed below the Your saving title', () => {
   cy.get('.NYGAb').should('have.text', '$4,932/ yearif you switch from Twilio');
 });

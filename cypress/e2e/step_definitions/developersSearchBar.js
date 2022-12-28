@@ -14,6 +14,7 @@ Then('The Search bar is focused', () => {
 
 When('Enter the JavaScript request', () => {
   developersPage.enterSearchRequest();
+  cy.wait(1500);
 });
 When('Click first response link', () => {
   developersPage.clickSearchResponseLink();

@@ -11,7 +11,7 @@
     When Click the Continue button
     Then How many phone numbers… section is displayed
 
-    When Click + to add local numbers
+    When Click plus button to add local numbers
     Then 110 is entered in the Local Numbers field
 
     When Click - to decrease toll-free Numbers
@@ -20,5 +20,5 @@
     When Press the Continue button
     Then Adjust your usage… section is displayed
 
-    When Click the + button in the Receive inbound field
-    Then $4,957... is displayed below the Your saving title
+    When Click plus button in the Receive inbound field
+    Then 4,957 is displayed below the Your saving title

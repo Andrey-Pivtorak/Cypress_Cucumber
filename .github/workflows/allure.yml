@@ -8,6 +8,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install xpath
+        uses: actions/checkout@v2
+        with:
+          command: npm install cypress-xpath
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run with Cucumber

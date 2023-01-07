@@ -21,7 +21,13 @@
 * npx cypress run (without browser)
 * npx cypress open (with browser)
 
-### To create allure report enter command:
+### To create allure report enter commands:
 
-* command...
+* npm run cypress:execution-allure
+* npm run allure:report
+* allure open
+
+### You must have these result:
+![](https://github.com/Andrey-Pivtorak/Cypress_Cucumber/blob/master/cypress/report_screens/Result_CyCuc_1.png)
+![](https://github.com/Andrey-Pivtorak/Cypress_Cucumber/blob/master/cypress/report_screens/Result_CyCuc_2.png)
 

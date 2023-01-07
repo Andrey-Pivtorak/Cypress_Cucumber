@@ -9,9 +9,9 @@ class SupportPage extends Base {
     gettingStartedSection: () => cy.get('.section > :nth-child(1)'),
     toursVideoSection: () => cy.get('.section > :nth-child(8)'),
     referenceMaterialSection: () => cy.get('.section > :nth-child(15)'),
-    telnyxFooterLink: () => cy.get('.footer__links__custom > :nth-child(1)'),
+    telnyxFooterLink: () => cy.get('.footer__links__custom > :nth-child(1) a'),
     supportFooterLink: () => cy.get('.footer__links__custom > :nth-child(4) a'),
-    facebookFooterLink: () => cy.get('[data-footer-link-type="facebook"]'),
+    facebookFooterLink: () => cy.get('[data-footer-link-type="facebook"] a'),
     footer: () => cy.get('.footer')
   }
 
@@ -36,14 +36,6 @@ class SupportPage extends Base {
 
   scrollToFooter() {
     this.scrollElement(this.elements.footer());
-  }
-
-  clickTelnyxFooterLink() {
-    this.clickElement(this.elements.telnyxFooterLink());
-  }
-
-  clickSupportFooterLink() {
-    this.clickElement(this.elements.supportFooterLink());
   }
 
   clickFacebookFooterLink() {

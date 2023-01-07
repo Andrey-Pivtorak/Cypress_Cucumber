@@ -4,6 +4,8 @@ dist/
 cypress/examples/
 cypress/trash/
 cypress/screenshots/
+allure-results/
+allure-Report/
 
 
 # Log files

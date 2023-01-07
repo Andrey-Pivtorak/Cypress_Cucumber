@@ -7,34 +7,22 @@ Given('Visit the website support.telnyx.com\\/en, scroll to footer', () => {
 });
 
 When('Click the telnyx.com link', () => {
-  supportPage.clickTelnyxFooterLink();
+  supportPage.scrollElement(supportPage.elements.telnyxFooterLink());
 });
 Then('The telnyx.com page is opened', () => {
-  cy.visit('https://telnyx.com/', {
-    onBeforeLoad(win) {
-      cy.stub(win, 'open')
-    }
-  });
+  supportPage.elements.telnyxFooterLink().should('have.attr', 'href', 'https://telnyx.com/');
 })
 
 When('Click the support 24 link', () => {
-  supportPage.clickSupportFooterLink();
+  supportPage.scrollElement(supportPage.elements.supportFooterLink());
 });
 Then('The Talk to an expert page is opened', () => {
-  cy.visit('https://telnyx.com/contact-us', {
-    onBeforeLoad(win) {
-      cy.stub(win, 'open')
-    }
-  });
+  supportPage.elements.supportFooterLink().should('have.attr', 'href', 'https://telnyx.com/contact-us');
 })
 
-// When('Click the FaceBook icon link', () => {
-//   supportPage.clickFacebookFooterLink();
-// })
-// Then('The Telnyx FaceBook page is opened', () => {
-//   cy.visit('https://www.facebook.com/Telnyx/', {
-//     onBeforeLoad(win) {
-//       cy.stub(win, 'open')
-//     }
-//   });
-// })
+When('Click the FaceBook icon link', () => {
+  supportPage.scrollElement(supportPage.elements.facebookFooterLink());
+})
+Then('The Telnyx FaceBook page is opened', () => {
+  supportPage.elements.facebookFooterLink().should('have.attr', 'href', 'https://facebook.com/Telnyx/');
+})

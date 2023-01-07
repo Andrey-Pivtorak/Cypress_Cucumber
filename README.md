@@ -1,15 +1,27 @@
-# Cypress project
+# Cypress-Cucumber project
 
 ### To do before testing:
-* _install ubuntu ubuntu-20.04 on your PC_
-* _install Node.js v18.12.1 on your PC_
-* open the command line and install the cypress framework, using the command: **npm install cypress --save-dev**
-* open the command line and install the cucumber framework, using the command: **npm install @badeball/cypress-cucumber-preprocessor**
-* open the command line and install the xpath plugin, using the command: **npm i cypress-xpath**
+* _install Node.js (minimum 14 version) on your PC_
 
-### To start testing enter the command in powershell of VS Code:
+  [choose version](https://nodejs.org/en/download/releases/)
+
+* _open the command line (or terminal, if VS Code or another apps are used) and copy the repository. Enter the command:_
+
+    **git clone https://github.com/Andrey-Pivtorak/Cypress_Cucumber.git**
+
+* _move to the Cypress_Cucumber folder, using the command:_
+
+    **cd Cypress_Cucumber**
+
+* _install all dependencies, using the command:_
+
+  **npm install**
+
+### To start testing enter the command in a command line (or in terminal, if VS Code or another apps are used):
 * npx cypress run (without browser)
 * npx cypress open (with browser)
 
-#
-##### _Produced by Andrii Pivtorak_
+### To create allure report enter command:
+
+* command...
+

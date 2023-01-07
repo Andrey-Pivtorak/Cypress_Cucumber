@@ -20,9 +20,10 @@
   "author": "Andrii Pivtorak",
   "license": "ISC",
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^15.0.0"
+    "allure-commandline": "^2.20.1"
   },
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
     "@cypress/xpath": "^2.0.3",
     "@shelex/cypress-allure-plugin": "^2.34.0",
@@ -30,4 +31,5 @@
     "cypress-iframe": "^1.0.1",
     "esbuild": "^0.16.10"
   }
+
 }

@@ -54,10 +54,12 @@ class DevelopersPage extends Base {
 
   clickApi1Button() {
     this.clickElement(this.elements.api1Button());
+    cy.wait(2000);
   }
 
   clickApi2Button() {
     this.clickElement(this.elements.api2Button());
+    cy.wait(2000);
   }
 
   clickMessagingButton() {
@@ -118,18 +120,22 @@ class DevelopersPage extends Base {
 
   clickRubyLink() {
     this.clickElement(this.elements.rubyLink());
+    cy.wait(2000);
   }
 
   clickNodeLink() {
     this.clickElement(this.elements.nodeLink());
+    cy.wait(2000);
   }
 
   clickJavaLink() {
     this.clickElement(this.elements.javaLink());
+    cy.wait(2000);
   }
 
   clickDotNetLinkLink() {
     this.clickElement(this.elements.dotNetLink());
+    cy.wait(2000);
   }
 
 

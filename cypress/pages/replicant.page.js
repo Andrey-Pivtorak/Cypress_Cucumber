@@ -3,19 +3,16 @@ import 'cypress-iframe';
 
 class ReplicantPage extends Base {
 
-  elements = {
-    iframeWrapper: () => cy.get('.fIjqZs > :nth-child(4)'),
-    videoIframe: () => cy.iframe('.videoWrapper > iframe'),
-    videoTarget: () => cy.get('.vp-target')
-  }
+  iframeWrapper = '.fIjqZs > :nth-child(4)';
+  videoIframe = '.videoWrapper > iframe';
+  videoTarget = '.vp-target';
 
   clickVideoPlayer() {
-    this.scrollElement(this.elements.iframeWrapper());
-    this.elements.videoIframe().find('.vp-target').should('be.visible').click();
+    cy.iframe(this.videoIframe).find(this.videoTarget).should('be.visible').click();
   }
 
   checkVideoPlaying() {
-    this.elements.videoIframe().find('.vp-target').should('have.class', 'hidden');
+    cy.iframe(this.videoIframe).find(this.videoTarget).should('have.class', 'hidden');
   }
 }
 

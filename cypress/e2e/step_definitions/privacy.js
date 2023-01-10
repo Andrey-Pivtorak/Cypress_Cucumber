@@ -2,34 +2,34 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { privacyPage } from "@pages/privacy.page";
 
 Given('Visit privacy page', () => {
-  privacyPage.openPrivacyPage();
+  privacyPage.openPage(privacyPage.url);
+  privacyPage.closePopUpButton();
 });
 
-When('Click the Telnyx Product Updates link', () => {
-  privacyPage.clickProductUpdatesLink();
+When('Click the "Telnyx Product Updates" link', () => {
+  privacyPage.clickElement(privacyPage.productUpdatesLink);
 });
-Then('The Telnyx Product Updates information is displayed', () => {
-  privacyPage.elements.productUpdatesTitle().should('contain', 'Telnyx Product Updates');
-});
-
-When('Scroll to the Data & Privacy title', () => {
-  privacyPage.scrollDataPrivacyTitle();
-});
-Then('The Data & Privacy title is displayed', () => {
-  privacyPage.elements.dataPrivacyTitle().should('contain', 'Data & Privacy');
+Then('The "Telnyx Product Updates" information is displayed', () => {
+  cy.get(privacyPage.productUpdatesTitle).should('contain', 'Telnyx Product Updates');
 });
 
-When('Click the GDPR Frequently Asked... link', () => {
-  privacyPage.clickGdprLink();
+When('Scroll to the "Data & Privacy" title', () => {
+  privacyPage.scrollToElement(privacyPage.dataPrivacyTitle);
 });
-Then('The GDPR Frequently Asked... information is displsyed', () => {
-  privacyPage.elements.gdprTitle().should('contain', 'GDPR Frequently Asked Questions');
-  privacyPage.scrollDataPrivacyTitle();
+Then('The "Data & Privacy" title is displayed', () => {
+  cy.get(privacyPage.dataPrivacyTitle).should('contain', 'Data & Privacy');
 });
 
-When('Click the Data Transfer Impact... link', () => {
-  privacyPage.clickDataTransferLink();
+When('Click the "GDPR Frequently Asked..." link', () => {
+  privacyPage.clickElement(privacyPage.gdprLink);
 });
-Then('The Data Transfer Impact... information is displsyed', () => {
-  privacyPage.elements.dataTransferTitle().should('contain', 'Data Transfer Impact Assessment');
+Then('The "GDPR Frequently Asked..." information is displsyed', () => {
+  cy.get(privacyPage.gdprTitle).should('contain', 'GDPR Frequently Asked Questions');
+});
+
+When('Click the "Data Transfer Impact..." link', () => {
+  privacyPage.clickElement(privacyPage.dataTransferLink);
+});
+Then('The "Data Transfer Impact..." information is displsyed', () => {
+  cy.get(privacyPage.dataTransferTitle).should('contain', 'Data Transfer Impact Assessment');
 });

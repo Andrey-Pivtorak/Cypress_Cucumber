@@ -3,141 +3,51 @@ import Base from "./base";
 class DevelopersPage extends Base {
 
   baseUrl = 'https://developers.telnyx.com';
-  librariesUrl = 'https://developers.telnyx.com/docs/api/v2/overview';
+  librariesPageUrl = 'https://developers.telnyx.com/docs/api/v2/overview';
 
-  elements = {
-    api1Button: () => cy.get('.fsStYO .hYETLD > :first-child'),
-    api2Button: () => cy.get('.fsStYO .hYETLD > :last-child'),
-    // api1Title: () => cy.get('#telnyx-api-v1-documentation'),
-    api1Title: () => cy.get('.kqOdep h1'),
-    api2Title: () => cy.get('#telnyx-api-v2-documentation'),
-    messagingButton: () => cy.get('.fsayUj > :nth-child(1)'),
-    sipTrunkingButton: () => cy.get('.fsayUj > :nth-child(4)'),
-    searchBar: () => cy.xpath('//div[@id="docs-desktop-sidebar"]//input'),
-    searchResponseLink: () => cy.xpath('//a[contains(@href,"javascript-quickstart")]'),
+  messagingButton = '.fsayUj > :nth-child(1)';
+  sipTrunkingButton = '.fsayUj > :nth-child(4)';
+  librariesTitle = '#client-libraries';
+  rubyLink = '.dmyoCH > :nth-child(2)';
+  rubyCode = '.language-ruby';
 
-    tryNowSectionTitle: () => cy.get('.bsfvBg'),
-    tryNowSectionTabList: () => cy.get('.bTQRcM'),
-    tryNowSearchNumberTab: () => cy.get('.eGZJmB > :nth-child(2)'),
-    tryNowSearchNumberContent: () => cy.get('[id="tabpanel-Search Number"] code'),
-    tryNowOrderNumberTab: () => cy.get('.eGZJmB > :nth-child(3)'),
-    tryNowOrderNumberContent: () => cy.get('[id="tabpanel-Order Number"] code'),
-    tryNowSendMessageTab: () => cy.get('.eGZJmB > :nth-child(4)'),
-    tryNowSendMessageContent: () => cy.get('[id="tabpanel-Send Message"] code'),
-    accountLink: () => cy.get('#docs-desktop-sidebar .dwzZgE > :nth-child(2)'),
-    portingLink: () => cy.get('#docs-desktop-sidebar .dwzZgE > :nth-child(6)'),
-    webrtcLink: () => cy.get('#docs-desktop-sidebar .dwzZgE > :nth-child(10)'),
-    debuggingLink: () => cy.get('#docs-desktop-sidebar .dwzZgE > :nth-child(15)'),
+  nodeLink = '.dmyoCH > :nth-child(3)';
+  nodeCode = '.language-javascript';
+  javaLink = '.dmyoCH > :nth-child(5)';
+  javaCode = '.language-java';
+  dotNetLink = '.dmyoCH > :nth-child(6)';
+  dotNeCode = '.language-csharp';
 
-    librariesTitle: () => cy.get('#client-libraries'),
-    rubyLink: () => cy.get('.dmyoCH > :nth-child(2)'),
-    rubyCode: () => cy.get('.language-ruby'),
-    nodeLink: () => cy.get('.dmyoCH > :nth-child(3)'),
-    nodeCode: () => cy.get('.language-javascript'),
-    javaLink: () => cy.get('.dmyoCH > :nth-child(5)'),
-    javaCode: () => cy.get('.language-java'),
-    dotNetLink: () => cy.get('.dmyoCH > :nth-child(6)'),
-    dotNeCode: () => cy.get('.language-csharp'),
+  searchBar = '.sFNkS input';
 
+  accountLink = '#docs-desktop-sidebar .dwzZgE > :nth-child(2)';
+  portingLink = '#docs-desktop-sidebar .dwzZgE > :nth-child(6)';
+  webrtcLink = '#docs-desktop-sidebar .dwzZgE > :nth-child(10)';
+  debuggingLink = '#docs-desktop-sidebar .dwzZgE > :nth-child(15)';
 
-  }
+  tryNowSectionTitle = '.bsfvBg';
+  tryNowSectionTabList = '.bTQRcM';
+  tryNowSearchNumberTab = '.eGZJmB > :nth-child(2)';
+  tryNowSearchNumberContent = '[id="tabpanel-Search Number"] code';
+  tryNowOrderNumberTab = '.eGZJmB > :nth-child(3)';
+  tryNowOrderNumberContent = '[id="tabpanel-Order Number"] code';
+  tryNowSendMessageTab = '.eGZJmB > :nth-child(4)';
+  tryNowSendMessageContent = '[id="tabpanel-Send Message"] code';
+
+  api1Button = '.fsStYO .hYETLD > :first-child';
+  api1Title = '.kqOdep h1';
+  api2Button = '.fsStYO .hYETLD > :last-child';
+  api2Title = '#telnyx-api-v2-documentation';
 
   openDevelopersPage() {
     cy.visit(`${this.baseUrl}`);
-    cy.url().should('include', 'developers');
+    cy.url().should('include', 'developers').wait(2000);
   }
 
   openDevelopersLibrariesPage() {
-    cy.visit(`${this.librariesUrl}`);
+    cy.visit(`${this.librariesPageUrl}`);
     cy.url().should('include', '/overview');
   }
-
-  clickApi1Button() {
-    this.clickElement(this.elements.api1Button());
-    cy.wait(2000);
-  }
-
-  clickApi2Button() {
-    this.clickElement(this.elements.api2Button());
-    cy.wait(2000);
-  }
-
-  clickMessagingButton() {
-    this.clickElement(this.elements.messagingButton());
-  }
-
-  clickSipTrunkingButton() {
-    this.clickElement(this.elements.sipTrunkingButton());
-  }
-
-  clickSearchBar() {
-    this.clickElement(this.elements.searchBar());
-  }
-
-  enterSearchRequest() {
-    this.enterInput(this.elements.searchBar(), 'JavaScript')
-  }
-
-  clickSearchResponseLink() {
-    this.elements.searchResponseLink().click();
-  }
-
-  scrollTryNowSectionTitle() {
-    this.scrollElement(this.elements.tryNowSectionTitle());
-  }
-
-  clickTryNowSearchNumberTab() {
-    this.clickElement(this.elements.tryNowSearchNumberTab());
-  }
-
-  clickTryNowOrderNumberTab() {
-    this.clickElement(this.elements.tryNowOrderNumberTab());
-  }
-
-  clickTryNowSendMessageTab() {
-    this.clickElement(this.elements.tryNowSendMessageTab());
-  }
-
-  clickAccountLink() {
-    this.clickElement(this.elements.accountLink());
-  }
-
-  clickPortingLink() {
-    this.clickElement(this.elements.portingLink());
-  }
-
-  clickWebrtcLink() {
-    this.clickElement(this.elements.webrtcLink());
-  }
-
-  clickDebuggingLink() {
-    this.clickElement(this.elements.debuggingLink());
-  }
-
-  scrollLibrariesTitle() {
-    this.scrollElement(this.elements.librariesTitle());
-  }
-
-  clickRubyLink() {
-    this.clickElement(this.elements.rubyLink());
-    cy.wait(2000);
-  }
-
-  clickNodeLink() {
-    this.clickElement(this.elements.nodeLink());
-    cy.wait(2000);
-  }
-
-  clickJavaLink() {
-    this.clickElement(this.elements.javaLink());
-    cy.wait(2000);
-  }
-
-  clickDotNetLinkLink() {
-    this.clickElement(this.elements.dotNetLink());
-    cy.wait(2000);
-  }
-
 
 }
 

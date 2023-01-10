@@ -3,33 +3,32 @@ import { developersPage } from "@pages/developers.page";
 
 Given('Go developers.telnyx.com', () => {
   developersPage.openDevelopersPage();
-  cy.wait(2000);
 });
 
-When('Click the Account link', () => {
-  developersPage.clickAccountLink();
+When('Click the "Account" link', () => {
+  developersPage.clickElement(developersPage.accountLink);
 });
-Then('The Account page is opened', () => {
-  cy.url().should('include', '/account');
-});
-
-When('Click the Porting link', () => {
-  developersPage.clickPortingLink();
-});
-Then('The Porting page is opened', () => {
-  cy.url().should('include', '/porting');
+Then('The "Account" page is opened', () => {
+  cy.wait(1500).url().should('include', '/account');
 });
 
-When('Click the WebRTC link', () => {
-  developersPage.clickWebrtcLink();
+When('Click the "Porting" link', () => {
+  developersPage.clickElement(developersPage.portingLink);
 });
-Then('The WebRTC page is opened', () => {
-  cy.url().should('include', '/webrtc');
+Then('The "Porting" page is opened', () => {
+  cy.wait(1500).url().should('include', '/porting');
 });
 
-When('Click the Debugging link', () => {
-  developersPage.clickDebuggingLink();
+When('Click the "WebRTC" link', () => {
+  developersPage.clickElement(developersPage.webrtcLink);
 });
-Then('The Debugging page is opened', () => {
-  cy.url().should('include', '/debugging');
+Then('The "WebRTC" page is opened', () => {
+  cy.wait(1500).url().should('include', '/webrtc');
+});
+
+When('Click the "Debugging" link', () => {
+  developersPage.clickElement(developersPage.debuggingLink);
+});
+Then('The "Debugging" page is opened', () => {
+  cy.wait(1500).url().should('include', '/debugging');
 });

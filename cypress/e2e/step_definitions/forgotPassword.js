@@ -5,23 +5,23 @@ Given('Visit login page', (site) => {
   loginPage.openLoginPage();
 });
 
-When('Click the forgot your password link', () => {
-  loginPage.clickForgotPasswordLink();
+When('Click the "forgot your password" link', () => {
+  loginPage.clickElement(loginPage.forgotPasswordLink);
 });
-Then('The Password Reset form is opened', () => {
-  cy.url().should('include', '/password-reset')
-});
-
-When('Enter email', () => {
-  loginPage.enterEmail();
-});
-Then('The email is entered', () => {
-  loginPage.elements.emailInput().should('have.value', `${loginPage.inputValues.email}`);
+Then('The "Password Reset" form is opened', () => {
+  cy.wait(1000).url().should('include', '/password-reset')
 });
 
-When('Click the Reset password button', () => {
-  loginPage.clickResetPasswordButton();
+When('Enter "email"', () => {
+  loginPage.enterInput(loginPage.emailInput, loginPage.email);
 });
-Then('The message We have accepted... is displayed', () => {
-  loginPage.elements.responseMessage().should('be.visible');
+Then('The "email" is entered', () => {
+  cy.get(loginPage.emailInput).should('have.value', loginPage.email);
+});
+
+When('Click the "Reset password" button', () => {
+  loginPage.clickElement(loginPage.resetPasswordButton);
+});
+Then('The message "We have accepted..." is displayed', () => {
+  cy.wait(2000).get(loginPage.responseMessage).should('be.visible');
 });

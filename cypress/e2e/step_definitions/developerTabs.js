@@ -5,18 +5,16 @@ Given('Open the site developers.telnyx.com', () => {
   developersPage.openDevelopersPage();
 });
 
-When('Click the API v1 tab', () => {
-  developersPage.clickApi1Button();
+When('Click the "API v1" tab', () => {
+  developersPage.clickElement(developersPage.api1Button);
 });
-Then('The Telnyx API V1 Documentation is displayed', () => {
-  developersPage.elements.api1Title().should('contain', 'Telnyx API V1 Documentation');
-})
+Then('The Telnyx "API V1 Documentation" text is displayed', () => {
+  cy.wait(2000).get(developersPage.api1Title).should('contain', 'Telnyx API V1 Documentation');
+});
 
-When('Click the API v2 tab', () => {
-  developersPage.clickApi2Button();
-})
-Then('The Telnyx API Documentation is displayed', () => {
-  developersPage.elements.api2Title().should('have.text', 'Telnyx API Documentation');
-})
-
-
+When('Click the "API v2" tab', () => {
+  developersPage.clickElement(developersPage.api2Button);
+});
+Then('The "Telnyx API Documentation" text is displayed', () => {
+  cy.wait(2000).get(developersPage.api2Title).should('have.text', 'Telnyx API Documentation');
+});

@@ -5,30 +5,30 @@ Given('The site developers.telnyx.com is opened', () => {
   developersPage.openDevelopersPage();
 });
 
-When('Scroll to the Try Now tab list', () => {
-  developersPage.scrollTryNowSectionTitle();
+When('Scroll to the "Try Now" tab list', () => {
+  developersPage.scrollToElement(developersPage.tryNowSectionTitle);
 });
-Then('The Try Now tab list is displayed', () => {
-  developersPage.elements.tryNowSectionTabList().should('be.visible');
-});
-
-When('Click the Search Number tab', () => {
-  developersPage.clickTryNowSearchNumberTab();
-});
-Then('The Search Number tab content is displayed', () => {
-  developersPage.elements.tryNowSearchNumberContent().should('be.visible');
+Then('The "Try Now" tab list is displayed', () => {
+  cy.get(developersPage.tryNowSectionTabList).should('be.visible');
 });
 
-When('Click the Order Number tab', () => {
-  developersPage.clickTryNowOrderNumberTab();
+When('Click the "Search Number" tab', () => {
+  developersPage.clickElement(developersPage.tryNowSearchNumberTab);
 });
-Then('The Order Number tab content is displayed', () => {
-  developersPage.elements.tryNowOrderNumberContent().should('be.visible');
+Then('The "Search Number" tab content is displayed', () => {
+  cy.wait(1000).get(developersPage.tryNowSearchNumberContent).should('be.visible');
 });
 
-When('Click the Send Message tab', () => {
-  developersPage.clickTryNowSendMessageTab();
+When('Click the "Order Number" tab', () => {
+  developersPage.clickElement(developersPage.tryNowOrderNumberTab);
 });
-Then('The Send Message tab content is displayed', () => {
-  developersPage.elements.tryNowSendMessageContent().should('be.visible');
+Then('The "Order Number" tab content is displayed', () => {
+  cy.wait(1000).get(developersPage.tryNowOrderNumberContent).should('be.visible');
+});
+
+When('Click the "Send Message" tab', () => {
+  developersPage.clickElement(developersPage.tryNowSendMessageTab);
+});
+Then('The "Send Message" tab content is displayed', () => {
+  cy.wait(1000).get(developersPage.tryNowSendMessageContent).should('be.visible');
 });

@@ -1,22 +1,62 @@
 export default class Base {
 
-  scrollElement(locator) {
-    locator
+  cookiePopUpButton = '.jRrWoh';
+
+  openPage(restUrl) {
+    cy.visit('/' + restUrl);
+    cy.url().should('include', restUrl);
+  }
+
+  closePopUpButton() {
+    cy.get(this.cookiePopUpButton).click();
+  }
+
+  scrollToElement(selector) {
+    let getSelectorCommand = () => cy.get(selector);
+    if (selector.includes('//')) {
+      getSelectorCommand = () => cy.xpath(selector);
+    }
+
+    getSelectorCommand()
       .scrollIntoView({ easing: 'linear' })
       .should('be.visible');
   }
 
-  clickElement(locator) {
-    locator
-      .scrollIntoView()
-      .should('be.visible')
-      .click();
+  clickElement(selector) {
+    let getSelectorCommand = () => cy.get(selector);
+    if (selector.includes('//')) {
+      getSelectorCommand = () => cy.xpath(selector);
+    }
+
+    getSelectorCommand()
+        .scrollIntoView()
+        .should('be.visible')
+        .click();
   }
 
-  enterInput(locator, inputValue) {
-    locator
+  clickNoTargetElement(selector) {
+    let getSelectorCommand = () => cy.get(selector);
+    if (selector.includes('//')) {
+      getSelectorCommand = () => cy.xpath(selector);
+    }
+
+    getSelectorCommand()
+      .scrollIntoView()
+      .invoke("removeAttr", "target")
+      .invoke('attr','target','_self')
+      .click()
+    }
+
+  enterInput(selector, inputValue) {
+    let getSelectorCommand = () => cy.get(selector);
+    if (selector.includes('//')) {
+      getSelectorCommand = () => cy.xpath(selector);
+    }
+
+    getSelectorCommand()
+      .scrollIntoView()
       .type(inputValue)
-      .should('have.value', `${inputValue}`);
+      .should('have.value', inputValue);
   }
 
 }

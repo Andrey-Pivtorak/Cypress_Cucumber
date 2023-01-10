@@ -5,37 +5,37 @@ Given('Visit developers libraries page', () => {
   developersPage.openDevelopersLibrariesPage();
 });
 
-When('Scroll to the client libraries section', () => {
-  developersPage.scrollLibrariesTitle();
+When('Scroll to the "client libraries" section', () => {
+  developersPage.scrollToElement(developersPage.librariesTitle);
 });
-Then('The  client libraries section is displayed', () => {
-  developersPage.elements.librariesTitle().should('be.visible');
-});
-
-When('Click the Ruby icon', () => {
-  developersPage.clickRubyLink();
-});
-Then('The gem install telnyx code is displayed', () => {
-  developersPage.elements.rubyCode().should('be.visible');
+Then('The  "client libraries" section is displayed', () => {
+  cy.get(developersPage.librariesTitle).should('be.visible');
 });
 
-When('Click the Node icon', () => {
-  developersPage.clickNodeLink();
+When('Click the "Ruby" icon', () => {
+  developersPage.clickElement(developersPage.rubyLink);
 });
-Then('The npm install telnyx code is displayed', () => {
-  developersPage.elements.nodeCode().should('be.visible');
-});
-
-When('Click the Java icon', () => {
-  developersPage.clickJavaLink();
-});
-Then('The Java code is displayed', () => {
-  developersPage.elements.javaCode().should('be.visible');
+Then('The "gem install telnyx" code is displayed', () => {
+  cy.get(developersPage.rubyCode).should('be.visible');
 });
 
-When('Click the .NET icon', () => {
-  developersPage.clickDotNetLinkLink();
+When('Click the "Node" icon', () => {
+  developersPage.clickElement(developersPage.nodeLink);
 });
-Then('The nuget install Telnyx.net code is displayed', () => {
-  developersPage.elements.dotNeCode().should('be.visible');
+Then('The "npm install telnyx" code is displayed', () => {
+  cy.wait(1000).get(developersPage.nodeCode).should('be.visible');
+});
+
+When('Click the "Java" icon', () => {
+  developersPage.clickElement(developersPage.javaLink);
+});
+Then('The "Java" code is displayed', () => {
+  cy.wait(1000).get(developersPage.javaCode).should('be.visible');
+});
+
+When('Click the ".NET" icon', () => {
+  developersPage.clickElement(developersPage.dotNetLink);
+});
+Then('The "nuget install Telnyx.net" code is displayed', () => {
+  cy.wait(1000).get(developersPage.dotNeCode).should('be.visible');
 });

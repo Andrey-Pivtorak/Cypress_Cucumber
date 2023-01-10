@@ -1,94 +1,73 @@
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 import { careersPage } from "@pages/careers.page";
 
-Given('Visit careers page', () => {
-  careersPage.openCareersPage();
+Given('Visit "careers" page', () => {
+  careersPage.openPage(careersPage.url);
+  careersPage.closePopUpButton();
 });
 
-When('Scroll to the Mobile Core Engineer link', () => {
-  careersPage.scrollMobCoreEngineerLink();
+When('Scroll to the "Mobile Core Engineer" link', () => {
+  careersPage.scrollToElement(careersPage.mobCoreEngineerLink);
 });
-Then('The Mobile Core Engineer link is displayed', () => {
-  careersPage.elements.mobCoreEngineerLink().should('be.visible');
-});
-
-When('Click the Mobile Core Engineer link', () => {
-  careersPage.clickMobCoreEngineerLink();
-});
-Then('The Mobile Core Engineer job application is opened', () => {
-  cy.visit('https://boards.greenhouse.io/telnyx54/jobs/5385619003', {
-    onBeforeLoad(win) {
-      cy.stub(win, 'open')
-    }
-  });
+Then('The "Mobile Core Engineer" link is displayed', () => {
+  cy.get(careersPage.mobCoreEngineerLink).should('be.visible');
 });
 
-When('Scroll to the Apply for this Job form', () => {
-  careersPage.scrollApplyFormTitle();
+When('Click the "Mobile Core Engineer" link', () => {
+  careersPage.clickNoTargetElement(careersPage.mobCoreEngineerLink);
 });
-Then('The Apply for this Job form is displayed', () => {
-  careersPage.elements.applyForm().should('be.visible');
-});
-
-When('Enter First Name', () => {
-  careersPage.enterFirstName();
-});
-Then('The First Name is entered', () => {
-  careersPage.elements.firstNameInput().should('have.value', `${careersPage.inputValues.firstName}`);
+Then('The "Mobile Core Engineer" job application is opened', () => {
+  cy.url().should('include', 'jobs/5385619003');
 });
 
-When('Enter Last Name', () => {
-  careersPage.enterLastName();
+When('Scroll to the "Apply for this Job" form', () => {
+  careersPage.scrollToElement(careersPage.applyFormTitle);
 });
-Then('The Last Name is entered', () => {
-  careersPage.elements.lastNameInput().should('have.value', `${careersPage.inputValues.lastName}`);
-});
-
-When('Enter Email', () => {
-  careersPage.enterEmail();
-});
-Then('The Email is entered', () => {
-  careersPage.elements.emailInput().should('have.value', `${careersPage.inputValues.email}`);
+Then('The "Apply for this Job" form is displayed', () => {
+  cy.get(careersPage.applyFormTitle).should('be.visible');
 });
 
-When('Enter Yes in the visa sponsorship field', () => {
+When('A user enter correct credentials, check entered data', (table) => {
+  table.hashes().forEach(row => {
+    cy.get(row.id).type(row.value).should('have.value', row.value);
+  })
+})
+
+When('Enter "Yes" in the visa sponsorship field', () => {
   careersPage.enterVisaSelect();
 });
-Then('Yes is entered in the visa sponsorship field', () => {
+Then('"Yes" is entered in the visa sponsorship field', () => {
   cy.get('#select2-chosen-1').should('have.text', 'Yes');
 });
 
-When('Enter two thousand dollars in the salary field', () => {
-  careersPage.enterSalary();
+When('Enter "two thousand dollars" in the salary field', () => {
+  careersPage.enterInput(careersPage.salaryInput, careersPage.salary);
 });
-Then('two thousand dollars is entered in the salary field', () => {
-  careersPage.elements.salaryInput().should('have.value', 'two thousand dollars');
+Then('"Two thousand dollars" is entered in the salary field', () => {
+  cy.get(careersPage.salaryInput).should('have.value', 'two thousand dollars');
 });
 
-When('Enter No in the countries field', () => {
-  careersPage.enterSponsorSelect();
+When('Enter "No" in the countries field', () => {
+  careersPage.enterCitizenSelect();
 });
-Then('No is entered in the countries field', () => {
+Then('"No" is entered in the countries field', () => {
   cy.get('#select2-chosen-2').should('have.text', 'No');
 });
 
-When('Enter Male in the Gender field', () => {
+When('Enter "Male" in the Gender field', () => {
   careersPage.enterGenderInput();
 });
-Then('Male is entered in the Gender field', () => {
+Then('"Male" is entered in the Gender field', () => {
   cy.get('#select2-chosen-3').should('have.text', 'Male');
 });
 
-When('Scroll to the Submit Application button', () => {
-  careersPage.scrollToSubmitButton();
+When('Scroll to the "Submit" Application button', () => {
+  careersPage.scrollToElement(careersPage.submitButton);
 });
-Then('The Submit Application button is displayed', () => {
-  careersPage.elements.submitButton().should('be.visible');
+When('Click the  "Submit" Application button', () => {
+  careersPage.clickElement(careersPage.submitButton);
 });
 
-When('Click the  Submit Application button', () => {
-  careersPage.clickSubmitButton();
-});
-Then('The Thank you for applying message is displayed', () => {
-  cy.get('#application_confirmation h1').should('be.visible');
+Then('The "Thank you for applying" message is displayed', () => {
+  cy.get(careersPage.applyingMessage).should('be.visible');
 });

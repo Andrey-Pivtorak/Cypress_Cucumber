@@ -4,7 +4,7 @@ class CareersPage extends Base {
 
   url = 'company/careers';
 
-  mobCoreEngineerLink = '.biJXva > :nth-child(5) a';
+  mobCoreEngineerLink = '.biJXva > :nth-child(4) a';
   applyFormTitle = '.heading';
   visaSelect = '#s2id_job_application_answers_attributes_2_boolean_value';
   salaryInput = '#job_application_answers_attributes_3_text_value';

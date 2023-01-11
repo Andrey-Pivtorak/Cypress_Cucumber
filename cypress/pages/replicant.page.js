@@ -12,7 +12,7 @@ class ReplicantPage extends Base {
   }
 
   checkVideoPlaying() {
-    cy.iframe(this.videoIframe).find(this.videoTarget).should('have.class', 'hidden');
+    cy.wait(2000).iframe(this.videoIframe).find(this.videoTarget).should('have.class', 'hidden');
   }
 }
 

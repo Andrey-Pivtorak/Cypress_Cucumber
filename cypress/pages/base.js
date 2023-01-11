@@ -11,36 +11,30 @@ export default class Base {
     cy.get(this.cookiePopUpButton).click();
   }
 
-  scrollToElement(selector) {
+  locator(selector) {
     let getSelectorCommand = () => cy.get(selector);
     if (selector.includes('//')) {
       getSelectorCommand = () => cy.xpath(selector);
     }
 
-    getSelectorCommand()
+    return getSelectorCommand();
+  }
+
+  scrollToElement(selector) {
+    this.locator(selector)
       .scrollIntoView({ easing: 'linear' })
       .should('be.visible');
   }
 
   clickElement(selector) {
-    let getSelectorCommand = () => cy.get(selector);
-    if (selector.includes('//')) {
-      getSelectorCommand = () => cy.xpath(selector);
-    }
-
-    getSelectorCommand()
+    this.locator(selector)
         .scrollIntoView()
         .should('be.visible')
         .click();
   }
 
   clickNoTargetElement(selector) {
-    let getSelectorCommand = () => cy.get(selector);
-    if (selector.includes('//')) {
-      getSelectorCommand = () => cy.xpath(selector);
-    }
-
-    getSelectorCommand()
+    this.locator(selector)
       .scrollIntoView()
       .invoke("removeAttr", "target")
       .invoke('attr','target','_self')
@@ -48,12 +42,7 @@ export default class Base {
     }
 
   enterInput(selector, inputValue) {
-    let getSelectorCommand = () => cy.get(selector);
-    if (selector.includes('//')) {
-      getSelectorCommand = () => cy.xpath(selector);
-    }
-
-    getSelectorCommand()
+    this.locator(selector)
       .scrollIntoView()
       .type(inputValue)
       .should('have.value', inputValue);
